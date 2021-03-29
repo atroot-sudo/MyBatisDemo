@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+
+    <properties resource="db.properties"/>
+    <!--    <typeAliases>-->
+    <!--        <typeAlias type="com.theoldzheng.pojo.User" alias="user"/>-->
+    <!--    </typeAliases>-->
+
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+
+    <typeAliases>
+        <package name="com.theoldzheng.pojo"/>
+    </typeAliases>
+
+    <environments default="proper">
+
+        <environment id="proper">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url"
+                          value="jdbc:mysql://localhost:3306/mybatis_demo?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=true"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--    <mappers>-->
+    <!--        <mapper resource="com/theoldzheng/dao/UserMapper.xml"/>-->
+    <!--    </mappers>-->
+    <!--    <mappers>-->
+    <!--        <mapper class="com.theoldzheng.dao.UserMapper"/>-->
+    <!--    </mappers>-->
+
+    <mappers>
+        <package name="com.theoldzheng.dao"/>
+    </mappers>
+</configuration>
