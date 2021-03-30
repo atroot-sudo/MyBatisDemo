@@ -32,14 +32,14 @@ public class UserMapperTest {
         sqlSession.close();
     }
 
-    @Test
+    /*@Test
     public void updateAdd() {
         SqlSession sqlSession = MyBatisUtils.getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         mapper.updateAdd(new User(3, "王多鱼", "1232456"));
         sqlSession.commit();
         sqlSession.close();
-    }
+    }*/
 
 
     @Test
