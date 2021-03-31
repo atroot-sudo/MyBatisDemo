@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.theoldzheng.dao.KeyMapper">
+
+    <select id="getKeyByIdSimple" resultMap="superkey">
+        SELECT k.id kid, k.keyname, k.lockid
+        from t_key k
+        where id = #{id}
+    </select>
+
+    <resultMap id="superkey" type="com.theoldzheng.pojo.Key">
+        <id property="id" column="kid"/>
+        <result property="keyName" column="keyname"/>
+        <association property="lock" select="com.theoldzheng.dao.LockMapper.getLockByIdSimple" column="lockid"
+                     fetchType="lazy">
+        </association>
+
+    </resultMap>
+
+
+    <select id="getKeyById" resultMap="key">
+        SELECT k.id kid,
+               k.keyname,
+               k.lockid,
+               l.id lid,
+               l.lockname
+        FROM `t_key` k
+                 LEFT JOIN t_lock l ON k.lockid = l.id
+        WHERE k.id = #{id}
+
+    </select>
+    <!--使用级联的方式实现多表联查-->
+    <!--<resultMap id="key" type="com.theoldzheng.pojo.Key">
+        <id property="id" column="kid"/>
+        <result property="keyName" column="keyname"/>
+        <result property="lock.id" column="lid"/>
+        <result property="lock.lockName" column="lockname"/>
+    </resultMap>-->
+
+    <!--    使用MyBatis推荐的方式使用特定的标签进行多表联查-->
+    <resultMap id="key" type="com.theoldzheng.pojo.Key">
+        <id property="id" column="kid"/>
+        <result property="keyName" column="keyname"/>
+        <!--        一个对象lock 自定义对象的封装规则-->
+        <association property="lock" javaType="com.theoldzheng.pojo.Lock">
+            <id property="id" column="lid"/>
+            <result property="lockName" column="lockname"/>
+        </association>
+
+    </resultMap>
+
+</mapper>

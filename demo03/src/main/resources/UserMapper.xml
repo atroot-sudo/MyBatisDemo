@@ -4,10 +4,17 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.theoldzheng.dao.UserMapper">
     <select id="getUserList" resultType="com.theoldzheng.pojo.User">
-        select * from user
+        select *
+        from user
     </select>
 
     <insert id="updateAdd" useGeneratedKeys="true" keyProperty="id">
-        insert into user(id,name,password) value (#{id},#{name},#{password})
+        insert into user(id, name, password, tx_password) value (#{id},#{name},#{password},#{txPassWord})
     </insert>
+
+    <select id="getByIdAndName" resultType="com.theoldzheng.pojo.User">
+        select * from user where id = #{id} and name = #{name}
+    </select>
+
+
 </mapper>

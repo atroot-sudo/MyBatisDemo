@@ -20,8 +20,7 @@ public class UserMapperTest {
                 System.out.println(user);
             }
         } finally {
-            if (sqlSession != null)
-            sqlSession.close();
+                sqlSession.close();
         }
     }
 
@@ -29,13 +28,26 @@ public class UserMapperTest {
     @Test
     public void updateAdd() {
         SqlSession sqlSession = MyBatisUtils.getSqlSession();
-        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        User user1 = new User(5, "黄飞鸿", "123456", "123456");
-        mapper.updateAdd(user1);
-        System.out.println(user1.getId());
-        sqlSession.commit();
-        System.out.println(user1.getId());
-        sqlSession.close();
+        try {
+            UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+            User user1 = new User(null, "黄大锤", "123456", "123456");
+            mapper.updateAdd(user1);
+            System.out.println(user1.getId());
+            sqlSession.commit();
+            System.out.println(user1.getId());
+        } finally {
 
+            sqlSession.close();
+        }
+    }
+
+
+    @Test
+    public void getByIdAndName() {
+        SqlSession sqlSession = MyBatisUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        User user = mapper.getByIdAndName("2","祥林嫂");
+        System.out.println(user);
+        sqlSession.close();
     }
 }

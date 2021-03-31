@@ -2,6 +2,7 @@ package com.theoldzheng.dao;
 
 
 import com.theoldzheng.pojo.User;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -65,5 +66,7 @@ public interface UserMapper {
      * @return User实例
      */
     List<User> getByLimit(Map<String, Integer> map);
+
+    User getByIdAndName(@Param("id")String id,@Param("name") String name);
 
 }

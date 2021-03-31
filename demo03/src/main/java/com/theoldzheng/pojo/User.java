@@ -13,7 +13,7 @@ public class User {
     private Integer id;
     private String name;
     private String password;
-    private String txPassword;
+    private String txPassWord;
 
     @Override
     public String toString() {
@@ -21,7 +21,7 @@ public class User {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
-                ", txPassword='" + txPassword + '\'' +
+                ", txPassword='" + txPassWord + '\'' +
                 '}';
     }
 
@@ -49,21 +49,21 @@ public class User {
         this.password = password;
     }
 
-    public String getTxPassword() {
-        return txPassword;
+    public String getTxPassWord() {
+        return txPassWord;
     }
 
-    public void setTxPassword(String txPassword) {
-        this.txPassword = txPassword;
+    public void setTxPassWord(String txPassWord) {
+        this.txPassWord = txPassWord;
     }
 
     public User() {
     }
 
-    public User(Integer id, String name, String password, String txPassword) {
+    public User(Integer id, String name, String password, String txPassWord) {
         this.id = id;
         this.name = name;
         this.password = password;
-        this.txPassword = txPassword;
+        this.txPassWord = txPassWord;
     }
 }

@@ -12,6 +12,10 @@
 
     <settings>
         <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--        延迟加载开关-->
+        <setting name="lazyLoadingEnabled" value="true"></setting>
+        <!--        按需加载-->
+        <setting name="aggressiveLazyLoading" value="false"/>
     </settings>
 
     <!--<typeAliases>
@@ -50,15 +54,18 @@
     <!--    <mappers>-->
     <!--        <mapper resource="com/theoldzheng/dao/UserMapper.xml"/>-->
     <!--    </mappers>-->
-        <!--<mappers>
-            <mapper class="com.theoldzheng.dao.UserMapper"/>
-        </mappers>-->
-
-    <mappers>
-        <package name="com.theoldzheng.dao"/>
-    </mappers>
+    <!--<mappers>
+        <mapper class="com.theoldzheng.dao.UserMapper"/>
+    </mappers>-->
 
     <!--<mappers>
-        <mapper resource="UserMapper.xml"></mapper>
+        <package name="com.theoldzheng.dao"/>
     </mappers>-->
+
+    <mappers>
+        <mapper resource="UserMapper.xml"></mapper>
+        <mapper resource="KeyMapper.xml"></mapper>
+        <mapper resource="LockMapper.xml"></mapper>
+    </mappers>
+
 </configuration>
