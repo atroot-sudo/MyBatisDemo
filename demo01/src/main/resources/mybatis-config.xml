@@ -16,6 +16,6 @@
     </environments>
 
     <mappers>
-        <mapper resource="com/theoldzheng/demo_01/dao/UserMapper.xml"/>
+        <mapper resource="com/theoldzheng/demo_01/com.theoldzheng.dao/UserMapper.xml"/>
     </mappers>
 </configuration>

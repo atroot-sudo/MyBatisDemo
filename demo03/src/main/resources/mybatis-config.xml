@@ -7,7 +7,7 @@
 
     <properties resource="db.properties"/>
     <!--    <typeAliases>-->
-    <!--        <typeAlias type="com.theoldzheng.pojo.User" alias="user"/>-->
+    <!--        <typeAlias type="com.theoldzheng.com.theoldzheng.pojo.User" alias="user"/>-->
     <!--    </typeAliases>-->
 
     <settings>
@@ -19,7 +19,7 @@
     </settings>
 
     <!--<typeAliases>
-        <package name="com.theoldzheng.pojo"/>
+        <package name="com.theoldzheng.com.theoldzheng.pojo"/>
     </typeAliases>-->
 
     <environments default="proper">
@@ -52,14 +52,14 @@
     </mappers>-->
 
     <!--    <mappers>-->
-    <!--        <mapper resource="com/theoldzheng/dao/UserMapper.xml"/>-->
+    <!--        <mapper resource="com/theoldzheng/com.theoldzheng.dao/UserMapper.xml"/>-->
     <!--    </mappers>-->
     <!--<mappers>
-        <mapper class="com.theoldzheng.dao.UserMapper"/>
+        <mapper class="com.theoldzheng.com.theoldzheng.dao.UserMapper"/>
     </mappers>-->
 
     <!--<mappers>
-        <package name="com.theoldzheng.dao"/>
+        <package name="com.theoldzheng.com.theoldzheng.dao"/>
     </mappers>-->
 
     <mappers>
